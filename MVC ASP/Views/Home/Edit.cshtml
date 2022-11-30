@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "Ubah Data Pelanggan";
+}
+
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <img src="https://i.pinimg.com/474x/b8/d1/45/b8d145ec1504ccfbeceff70bf5219c66.jpg" width="60px" />
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Ananta Salon</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <nav>
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Info">Info & Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Rambut">Rambut</a>
+                            <ul class="dropdown">
+                                <li><a href="#">Potong Rambut</a></li>
+                                <li><a href="#">Keramas</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Wajah">Wajah</a>
+                            <ul class="dropdown">
+                                <li><a href="#">masker</a></li>
+                                <li><a href="#">Facial Wash</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Process">Pendataan</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+    </nav>
+</header>
+
+<h1>@ViewData["Title"]</h1>
+
+@model MVC_ASP.Models.UserModel
+<form asp-controller="Home" asp-action="UpdateUser">
+    <div class="form-group">
+        @*<label asp-for="Id">ID</label>*@
+        <input asp-for="Id" type="text" class="form-control" id="Id" hidden>
+        <label asp-for="Username">Nama Pelanggan</label>
+        <input asp-for="Username" type="text" class="form-control" id="Username">
+        <label asp-for="Jenis">Jenis Perawatan</label>
+        <input asp-for="Jenis" type="text" class="form-control" id="Jenis">
+        <label asp-for="Tanggal">Tanggal Perawatan</label>
+        <input asp-for="Tanggal" type="text" class="form-control" id="Tanggal">
+        <label asp-for="nohp">No Hp</label>
+        <input asp-for="nohp" type="text" class="form-control" id="no_hp">
+        <label asp-for="email">Email</label>
+        <input asp-for="email" type="text" class="form-control" id="email">
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

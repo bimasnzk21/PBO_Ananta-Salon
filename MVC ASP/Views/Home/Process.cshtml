@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Riwayat Data";
+}
+
+
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <img src="https://i.pinimg.com/474x/b8/d1/45/b8d145ec1504ccfbeceff70bf5219c66.jpg" width="60px" />
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Ananta Salon</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <nav>
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Info">Info & Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Rambut">Rambut</a>
+                            <ul class="dropdown">
+                                <li><a href="#">Potong Rambut</a></li>
+                                <li><a href="#">Keramas</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Wajah">Wajah</a>
+                            <ul class="dropdown">
+                                <li><a href="#">masker</a></li>
+                                <li><a href="#">Facial Wash</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Process">Pendataan</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+    </nav>
+</header>
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nama</th>
+            <th scope="col">Jenis Perawatan</th>
+            <th scope="col">Tanggal Perawatan</th>
+            <th scope="col">no_hp</th>
+            <th scope="col">email</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Hapus</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var data = (List<UserModel>)ViewData["data"]!;
+            foreach (var user in data)
+            {
+                <tr>
+                    <th scope="row">@user.Id</th>
+                    <td>@user.Username</td>
+                    <td>@user.Jenis</td>
+                    <td>@user.Tanggal</td>
+                    <td>@user.nohp</td>
+                    <td>@user.email</td>
+                    <td>
+                        @Html.ActionLink("Ubah", "Edit", new { Id = @user.Id, Nama = @user.Username, Jenis_Perawatan = @user.Jenis, Tanggal_Perawatan = @user.Tanggal, no_hp = user.nohp, Email = @user.email}, new {@class = "btn btn-success"})
+                    </td>
+                    <td>
+                        @Html.ActionLink("Hapus", "DeleteUser", new { Id = @user.Id}, new {@class = "btn btn-danger", onclick ="return confirm('Apakah anda yakin ingin menghapus user ini?')" })
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<button type="submit" class="btn btn-primary"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Insert"></a>Tambah Data</button>

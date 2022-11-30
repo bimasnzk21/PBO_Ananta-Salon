@@ -1,0 +1,344 @@
+
+@media {
+    html {
+        font-size: 16px;
+        position: relative;
+        min-height: 100%;
+
+    }
+}
+
+
+.text {
+    width: 50%;
+    margin-top: 15%;
+    font-size: 17px;
+    letter-spacing: 1px;
+    line-height: 26px;
+    color: whitesmoke;
+    padding-left: 5%;
+    padding-right: 5%;
+    position: fixed;
+}
+
+body {
+    margin-bottom: 60px;
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(https://images.unsplash.com/photo-1558346648-9757f2fa4474?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
+}
+
+
+
+.container {
+    display: block;
+    background-size: cover;
+    /*background: gray;*/
+    height: 100vh;
+    width : 100%;
+    color: wheat;
+/*    outline : auto;
+    outline-color :red;*/
+}
+
+.container2 {
+    display: block;
+    /*background: gray;*/
+    height: 100vh;
+    background-size: cover;
+    color: wheat
+}
+
+.Berita {
+    display: flex;
+    /*background: black;*/
+    height: 88%;
+    align-items: center;
+}
+
+h1 {
+    color: white;
+    font-size: 40px;
+}
+
+p {
+    color: white;
+    font-size: 15px;
+}
+
+.footer {
+    width: 100%;
+    /*background: gray;*/
+    align-items: center;
+}
+
+.Gambar_Berita {
+    display: block;
+    padding-left: 46%;
+    position: absolute;
+}
+
+.table {
+    color: white;
+}
+
+nav {
+    width: 100%;
+    position: static;
+    display : table;
+    max-width : 100%
+}
+
+ul {
+    flex: 1;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+
+    ul li {
+        display: inline-block;
+        list-style: none;
+        position: relative;
+        display: inline-block;
+        color : black;
+    }
+
+        ul li a {
+            color: black;
+            text-decoration: none;
+            letter-spacing: 1px;
+            font-weight: 500;
+            font-size: 18px;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            position: center;
+        }
+
+        ul li::after {
+            content: "";
+            width: 0%;
+            height: 2px;
+            background: black;
+            display: block;
+            transition: 0.5s;
+        }
+
+        ul li:hover::after {
+            width: 100%;
+        }
+
+        ul li ul li a {
+            color: black;
+            text-decoration: none;
+            letter-spacing: 1px;
+            font-size: 14px;
+            font-weight: 400;
+            text-align: center;
+            position: center;
+        }
+
+        ul li ul.dropdown li {
+            display: block;
+            padding-left: 3px;
+            text-align: left;
+            position: center;
+        }
+
+        ul li ul.dropdown {
+            width: 100%;
+            background: rgba(255,255,255,.85);
+            position: absolute;
+            z-index: 50;
+            display: none;
+            transition: 0.5s;
+            padding-bottom: 3px;
+        }
+
+        ul li:hover ul.dropdown {
+            display: block;
+        }
+
+section {
+    background: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2));
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+    section .card .gambar {
+        position: center;
+        width: 310px;
+        height: 300px;
+    }
+
+        section .card .gambar img {
+            height: 100%;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+.judul-halaman {
+    display: flex;
+    position: center;
+}
+
+.card {
+    background: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2));
+    align-items: center;
+    display: flex;
+    position: relative;
+    margin: 50px 0;
+    cursor: pointer;
+}
+
+    .card::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+    }
+
+section .card .card-content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 263px;
+    height: 250px;
+    position: relative;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.card .details {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    position: absolute;
+    bottom: 0px;
+}
+
+.card .plus-icons i {
+    background: rgba(255,255,255,.3);
+    font-size: 40px;
+    color: rgba(255,255,255,.9);
+    opacity: 0;
+    margin-top: 10px;
+    margin-bottom: 50px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    transition: 0.6s;
+}
+
+.card:hover .plus-icons i {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.card .details .nama-produk {
+    opacity: 0;
+    justify-content: space-between;
+    width: 500px;
+    background: rgba(255,255,255,.8);
+    display: flex;
+    padding: 12px;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0px;
+    color: #333;
+    font-size: 20px;
+    font-weight: 500;
+    transition: 0.6s;
+    transition-property: opacity;
+}
+
+.card:hover .details .nama-produk {
+    opacity: 1;
+}
+
+.swiper {
+    max-width: 1080px;
+    color: white;
+}
+
+
+
+
+.get-in-touch {
+    max-width: 800px;
+    margin: 100px auto;
+    position: relative;
+}
+
+    .get-in-touch .title {
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 3.2em;
+        line-height: 48px;
+        padding-bottom: 48px;
+        color: #5543ca;
+        background-color: white ;
+        /*background: -moz-linear-gradient(left,#f4524d 0%,#5543ca 100%) !important;
+        background: -webkit-linear-gradient(left,#f4524d 0%,#5543ca 100%) !important;
+        background: linear-gradient(to right,#f4524d 0%,#5543ca 100%) !important;*/
+        -webkit-background-clip: text !important;
+        -webkit-text-fill-color: transparent !important;
+    }
+
+.contact-form .form-field {
+    position: relative;
+    margin: 32px 0;
+}
+
+.contact-form .input-text {
+    display: block;
+    width: 100%;
+    height: 36px;
+    border-width: 0 0 2px 0;
+    border-color: #5543ca;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 400;
+}
+
+    .contact-form .input-text:focus {
+        outline: none;
+    }
+
+        .contact-form .input-text:focus + .label,
+        .contact-form .input-text.not-empty + .label {
+            -webkit-transform: translateY(-24px);
+            transform: translateY(-24px);
+        }
+
+.contact-form .label {
+    position: absolute;
+    left: 20px;
+    bottom: 11px;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 400;
+    color: #5543ca;
+    cursor: text;
+    transition: -webkit-transform .2s ease-in-out;
+    transition: transform .2s ease-in-out;
+    transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
+}
+
+.contact-form .submit-btn {
+    display: inline-block;
+    background-color: #000;
+    background-image: linear-gradient(125deg,#a72879,#064497);
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 16px;
+    padding: 8px 16px;
+    border: none;
+    width: 200px;
+    cursor: pointer;
+}

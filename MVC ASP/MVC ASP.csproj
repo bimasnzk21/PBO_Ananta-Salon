@@ -8,6 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Views\Home\LoginAdmin.cshtml~RF2bc72e1.TMP" />
+    <None Remove="Views\Home\SignPel.cshtml~RF293da9b.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Npgsql" Version="6.0.7" />
   </ItemGroup>
 

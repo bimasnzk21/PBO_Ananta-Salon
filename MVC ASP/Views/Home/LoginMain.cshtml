@@ -1,12 +1,12 @@
 ﻿@{
-    ViewData["Title"] = "Login Admin";
+    ViewData["Title"] = "Login";
 }
 
 
 <header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
         <div class="container-fluid">
-            <img src="https://i.pinimg.com/474x/b8/d1/45/b8d145ec1504ccfbeceff70bf5219c66.jpg" width="60px"/>
+            <img src="https://i.pinimg.com/474x/b8/d1/45/b8d145ec1504ccfbeceff70bf5219c66.jpg" width="60px" />
             <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Ananta Salon</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -35,6 +35,7 @@
                             <ul class="dropdown">
                                 <li><a href="#">masker</a></li>
                                 <li><a href="#">Facial Wash</a></li>
+
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -51,23 +52,23 @@
     </nav>
 </header>
 
-<div class="container d-flex justify-content-center align-items-center" style="font-family: 'Barlow' , sans-serif; width: 750px; height: 500px;">
-    <div class="row">
-        <div class="col py-4">
-            <h1><b>@ViewData["Title"]</b></h1>
-        </div>
-        <div class="col">
-            @model MVC_ASP.Models.AdminModel
-            <form asp-controller="Home" asp-action="Login">
-                <div class="form-group">
-                    <label asp-for="useradm" class="mt-2">Username</label>
-                    <input asp-for="useradm" type="text" class="form-control" id="useradm">
-                    <label asp-for="passadm" class="mt-2">Password</label>
-                    <input asp-for="passadm" type="password" class="form-control" id="passadm">
-                </div>
-                <button type="submit" class="btn btn-primary mt-3">Login</button>
-            </form>
-        </div>
-    </div>
+<div class="kotak">
 
+    <div class="BoxLogin">
+        <div class="Judul-PilihanLogin">
+            <h3>
+                Silahkan Login Sebagai
+            </h3>
+        </div>
+
+        <div class="Tombol">
+            <div class="icon">
+                <a asp-area="" asp-controller="Home" asp-action="LoginAdmin" class="button">Admin</a>
+            </div>
+            <div class="icon">
+                <a hasp-area="" asp-controller="Home" asp-action="LoginPel" class="button">Customer</a>
+            </div>
+        </div>
+
+    </div>
 </div>

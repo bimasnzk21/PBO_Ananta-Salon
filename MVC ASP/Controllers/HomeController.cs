@@ -34,7 +34,7 @@ namespace MVC_ASP.Controllers
             param = new NpgsqlParameter[] { };
 
             // Query Select
-            query = "SELECT * FROM pengguna.\"Pelanggan\"";
+            query = "SELECT * FROM pengguna.pemesanan";
             // Panggil DBConn untuk eksekusi Query
             helper.DBConn(ref ds, query, param);
 
@@ -69,7 +69,7 @@ namespace MVC_ASP.Controllers
             return View();
         }
 
-        public IActionResult Login(string password)
+        public IActionResult Login(string useradm, string passadm)
         {
             ds = new DataSet();
             param = new NpgsqlParameter[] { };
@@ -80,7 +80,7 @@ namespace MVC_ASP.Controllers
             helper.DBConn(ref ds, query, param);
 
             // List of User untuk menampung data user
-            List<AccountModel> admins = new List<AccountModel>();
+            List<AdminModel> admins = new List<AdminModel>();
             // Mengambil value dari tabel di index 0
             var data = ds.Tables[0];
 
@@ -88,9 +88,10 @@ namespace MVC_ASP.Controllers
             foreach (DataRow u in data.Rows)
             {
                 // Membuat object User baru
-                AccountModel admin = new AccountModel();
+                AdminModel admin = new AdminModel();
                 // Mengisi id dan username dari object user dengan nilai dari database
-                admin.password = u.Field<string>(data.Columns[0]);
+                admin.useradm = u.Field<string>(data.Columns[1]);
+                admin.passadm = u.Field<string>(data.Columns[2]);
                 // Menambahkan user ke users (List of User)
                 admins.Add(admin);
             }
@@ -100,7 +101,7 @@ namespace MVC_ASP.Controllers
             bool berhasil = true;
             foreach (var admin in admins)
             {
-                if (admin.password == password)
+                if (admin.passadm == passadm && admin.useradm == admin.useradm)
                 {
                     Console.WriteLine("Login Berhasil");
                     break;
@@ -117,12 +118,120 @@ namespace MVC_ASP.Controllers
                 case true:
                     return RedirectToAction("IndexAdmin");
                 case false:
-                    return RedirectToAction("LoginAdmin");
+                    return RedirectToAction("LoginAdminFail");
             }
-            
+
+        }
+
+        public IActionResult LoginPelanggan(string userpel, string pswpel)
+        {
+            ds = new DataSet();
+            param = new NpgsqlParameter[] { };
+            // Query Select
+
+            query = "SELECT * FROM pengguna.pelanggan;";
+            // Panggil DBConn untuk eksekusi Query
+            helper.DBConn(ref ds, query, param);
+
+            // List of User untuk menampung data user
+            List<PelangganModel> pelang = new List<PelangganModel>();
+            // Mengambil value dari tabel di index 0
+            var data = ds.Tables[0];
+
+            // Perulangan untuk mengambil instance tiap baris dari tabel
+            foreach (DataRow u in data.Rows)
+            {
+                // Membuat object User baru
+                PelangganModel pel = new PelangganModel();
+                // Mengisi id dan username dari object user dengan nilai dari database
+                pel.userpel = u.Field<string>(data.Columns[1]);
+                pel.pswpel = u.Field<string>(data.Columns[2]);
+                // Menambahkan user ke users (List of User)
+                pelang.Add(pel);
+            }
+
+            ViewData["data"] = pelang;
+
+            bool berhasil = true;
+            foreach (var pel in pelang)
+            {
+                if (pel.pswpel == pel.pswpel && pel.userpel == pel.userpel)
+                {
+                    Console.WriteLine("Login Berhasil");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Cek Kembali username dan password Anda!");
+                    berhasil = false;
+                }
+            }
+
+            switch (berhasil)
+            {
+                case true:
+                    return RedirectToAction("IndexPel");
+                case false:
+                    return RedirectToAction("LoginPelFail");
+            }
+
         }
 
         public IActionResult Info()
+        {
+            return View();
+        }
+
+        public IActionResult LoginPel()
+        {
+            return View();
+        }
+
+        public IActionResult IndexPel()
+        {
+            return View();
+        }
+        public IActionResult InfoPel()
+        {
+            return View();
+        }
+
+        public IActionResult RambutPel()
+        {
+            return View();
+        }
+
+        public IActionResult WajahPel()
+        {
+            return View();
+        }
+
+        public IActionResult LoginPelFail()
+        {
+            return View();
+        }
+
+        public IActionResult LoginAdminFail()
+        {
+            return View();
+        }
+
+        public IActionResult InfoAdmin()
+        {
+            return View();
+        }
+
+        public IActionResult LoginMain()
+        {
+            return View();
+        }
+
+        public IActionResult WajahAdmin()
+        {
+            return View();
+        }
+
+        public IActionResult RambutAdmin()
         {
             return View();
         }
@@ -137,7 +246,6 @@ namespace MVC_ASP.Controllers
         {
             return View();
         }
-
 
         public IActionResult Index()
         {
@@ -158,15 +266,25 @@ namespace MVC_ASP.Controllers
             return View();
         }
 
+        public IActionResult Pemesanan()
+        {
+            return View();
+        }
+
+        public IActionResult Sign()
+        {
+            return View();
+        }
+
         public void GetUserById(int id)
         {
             ds = new DataSet();
             param = new NpgsqlParameter[] { 
             // Parameter untuk id
-            new NpgsqlParameter("@id_pelanggan", id)
+            new NpgsqlParameter("@id_pemesanan", id)
         };
 
-            query = "SELECT * FROM pengguna.\"Pelanggan\" WHERE id = @id_pelanggan;";
+            query = "SELECT * FROM pengguna.pemesanan WHERE id = @id_pemesanan;";
             helper.DBConn(ref ds, query, param);
 
 
@@ -192,12 +310,28 @@ namespace MVC_ASP.Controllers
             }
         }
 
-        public IActionResult InsertUser(UserModel user)
+        public IActionResult Signup(PelangganModel pel)
         {
             ds = new DataSet();
             param = new NpgsqlParameter[] {
             // Parameter untuk id dan username
-            new NpgsqlParameter("@id_pelanggan", user.Id),
+            new NpgsqlParameter("@userpel", pel.userpel),
+            new NpgsqlParameter("@pswpel", pel.pswpel),
+            new NpgsqlParameter("@emailpel", pel.emailpel),
+        };
+
+            query = "INSERT INTO pengguna.pelanggan VALUES (@userpel, @pswpel, @emailpel);";
+            helper.DBConn(ref ds, query, param);
+
+            return RedirectToAction("IndexPel");
+        }
+
+        public IActionResult Insertdata(UserModel user)
+        {
+            ds = new DataSet();
+            param = new NpgsqlParameter[] {
+            // Parameter untuk id dan username
+            new NpgsqlParameter("@id_pemesanan", user.Id),
             new NpgsqlParameter("@nama_pelanggan", user.Username),
             new NpgsqlParameter("@jenis_perawatan", user.Jenis),
             new NpgsqlParameter("@tanggal_perawatan", user.Tanggal),
@@ -205,18 +339,17 @@ namespace MVC_ASP.Controllers
             new NpgsqlParameter("@email", user.email),
         };
 
-            query = "INSERT INTO pengguna.\"Pelanggan\" VALUES (@id_pelanggan, @nama_pelanggan, @jenis_perawatan, @tanggal_perawatan, @no_hp, @email);";
+            query = "INSERT INTO pengguna.pemesanan VALUES (@id_pemesanan, @nama_pelanggan, @jenis_perawatan, @tanggal_perawatan, @no_hp, @email);";
             helper.DBConn(ref ds, query, param);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Process");
         }
-
 
         public IActionResult UpdateUser(UserModel user)
         {
             ds = new DataSet();
             param = new NpgsqlParameter[] {
-            new NpgsqlParameter("@id_pelanggan", user.Id),
+            new NpgsqlParameter("@id_pemasanan", user.Id),
             new NpgsqlParameter("@nama_pelanggan", user.Username),
             new NpgsqlParameter("@jenis_perawatan", user.Jenis),
             new NpgsqlParameter("@tanggal_perawatan", user.Tanggal),
@@ -224,23 +357,23 @@ namespace MVC_ASP.Controllers
             new NpgsqlParameter("@email", user.email),
         };
 
-            query = "UPDATE pengguna.\"Pelanggan\" SET nama_pelanggan = @nama_pelanggan, jenis_perawatan = @jenis_perawatan, tanggal_perawatan = @tanggal_perawatan, no_hp = @no_hp, email = @email WHERE id_pelanggan = @id_pelanggan;";
+            query = "UPDATE pengguna.pemesanan SET nama_pelanggan = @nama_pelanggan, jenis_perawatan = @jenis_perawatan, tanggal_perawatan = @tanggal_perawatan, no_hp = @no_hp, email = @email WHERE id_pemesanan = @id_pemesanan;";
             helper.DBConn(ref ds, query, param);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("IndexAdmin");
         }
 
         public IActionResult DeleteUser(UserModel user)
         {
             ds = new DataSet();
             param = new NpgsqlParameter[] {
-            new NpgsqlParameter("@id_pelanggan", user.Id)
+            new NpgsqlParameter("@id_pemesanan", user.Id)
         };
 
-            query = "DELETE FROM pengguna.\"Pelanggan\" WHERE id_pelanggan = @id_pelanggan;";
+            query = "DELETE FROM pengguna.pemesanan WHERE id_pemesanan = @id_pemesanan;";
             helper.DBConn(ref ds, query, param);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("IndexAdmin");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -252,42 +385,42 @@ namespace MVC_ASP.Controllers
 
     // Helper untuk koneksi ke DB
     class Helper
+    {
+        public void DBConn(ref DataSet ds, string query, NpgsqlParameter[] param)
         {
-            public void DBConn(ref DataSet ds, string query, NpgsqlParameter[] param)
+            // Data Source Name berisi credential dari database
+            string dsn = "Host=localhost;Username=postgres;Password=Bima12345;Database=PBO;Port=5432";
+            // Membuat koneksi ke db
+            var conn = new NpgsqlConnection(dsn);
+            // Command untuk eksekusi query
+            var cmd = new NpgsqlCommand(query, conn);
+
+            try
             {
-                // Data Source Name berisi credential dari database
-                string dsn = "Host=localhost;Username=postgres;Password=Bima12345;Database=PBO;Port=5432";
-                // Membuat koneksi ke db
-                var conn = new NpgsqlConnection(dsn);
-                // Command untuk eksekusi query
-                var cmd = new NpgsqlCommand(query, conn);
-
-                try
+                // Perulangan untuk menyisipkan nilai yang ada pada parameter ke query
+                foreach (var p in param)
                 {
-                    // Perulangan untuk menyisipkan nilai yang ada pada parameter ke query
-                    foreach (var p in param)
-                    {
-                        cmd.Parameters.Add(p);
-                    }
-                    // Membuka koneksi ke database
-                    cmd.Connection!.Open();
-                    // Mengisi ds dengan data yang didapatkan dari database
-                    new NpgsqlDataAdapter(cmd).Fill(ds);
-                    Console.WriteLine("Query berhasil dieksekusi");
+                    cmd.Parameters.Add(p);
                 }
-                catch (NpgsqlException e)
-                {
-                    Console.WriteLine(e);
-                }
-                finally
-                {
-                    // Menutup koneksi ke database
-                    cmd.Connection!.Close();
-                }
-
+                // Membuka koneksi ke database
+                cmd.Connection!.Open();
+                // Mengisi ds dengan data yang didapatkan dari database
+                new NpgsqlDataAdapter(cmd).Fill(ds);
+                Console.WriteLine("Query berhasil dieksekusi");
             }
+            catch (NpgsqlException e)
+            {
+                Console.WriteLine(e);
+            }
+            finally
+            {
+                // Menutup koneksi ke database
+                cmd.Connection!.Close();
+            }
+
         }
     }
+}
 
 
 

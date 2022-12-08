@@ -39,10 +39,10 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Insert">Pemesanan</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="LoginMain">Login</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="LoginAdmin">Login</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Sign">SignUp</a>
                         </li>
                     </ul>
                 </nav>
@@ -53,114 +53,152 @@
 </header>
 
 <section>
-    <div class="judul-halaman">
-        <h1>@ViewData["Title"]</h1>
+    <div class="kolom-berita">
+        <div class="Berita">
+            <div class="Text">
+                <h1><span class="text-otomatis"></span></h1>
+                <p>
+                    adalah istilah keseluruhan untuk kebersihan dan tata rias pada rambut  <br>
+                    yang tumbuh di kulit kepala manusia. Selain membuat rambut <br>
+                    berkilau, perawatan rambut juga memiliki fungsi untuk membuat  <br>
+                    rambut sehat dan halus serta terbebas dari kerontokan dan ketombe.
+                </p>
 
-    </div>
-    <div>
-        <div class="swiper mySwiper kolom2">
-            <div class="swiper-wrapper content">
-                <div class="swiper-slide card">
-                    <div class="card-content">
-                        <div class="gambar">
-                            <img src="https://c0.wallpaperflare.com/preview/260/208/935/hairstyle-hairdresser-hair-coloring.jpg" alt="" />
-
-                        </div>
-                        <div class="details">
-                            <div class="plus-icons">
-                                <i class="fa-solid fa-plus"></i>
-                            </div>
-                            <div class="nama-produk">
-                                <span class="nama">Potong Rambut</span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="swiper-slide card">
-                    <div class="card-content">
-                        <div class="gambar">
-                            <img src="https://c0.wallpaperflare.com/preview/260/208/935/hairstyle-hairdresser-hair-coloring.jpg" alt="" />
-
-                        </div>
-                        <div class="details">
-                            <div class="plus-icons">
-                                <i class="fa-solid fa-plus"></i>
-                            </div>
-                            <div class="nama-produk">
-                                <span class="nama">Potong Rambut</span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="swiper-slide card">
-                    <div class="card-content">
-                        <div class="gambar">
-                            <img src="https://c0.wallpaperflare.com/preview/260/208/935/hairstyle-hairdresser-hair-coloring.jpg" alt="" />
-
-                        </div>
-                        <div class="details">
-                            <div class="plus-icons">
-                                <i class="fa-solid fa-plus"></i>
-                            </div>
-                            <div class="nama-produk">
-                                <span class="nama">Potong Rambut</span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="swiper-slide card">
-                    <div class="card-content">
-                        <div class="gambar">
-                            <img src="https://c0.wallpaperflare.com/preview/260/208/935/hairstyle-hairdresser-hair-coloring.jpg" alt="" />
-
-                        </div>
-                        <div class="details">
-                            <div class="plus-icons">
-                                <i class="fa-solid fa-plus"></i>
-                            </div>
-                            <div class="nama-produk">
-                                <span class="nama">Potong Rambut</span>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
+                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+                <script>
+                    var typed = new Typed(".text-otomatis", {
+                        strings: ["Perawatan Rambut"],
+                        typeSpeed: 100,
+                        backSpeed: 100,
+                        loop: true
+                    })
+                </script>
+            </div>
+            <div class="Gambar_Berita">
+                <img src="https://cdn.hellosehat.com/wp-content/uploads/2018/01/shutterstock_228991456.jpg" width="500px" />
 
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+ </section>
+    <section>
+        <div class="judul-halaman">
+            <h1></h1>
+
+        </div>
+        <div>
+
+            <div class="swiper mySwiper kolom2">
+                <div class="swiper-wrapper content">
+                    <div class="swiper-slide card">
+                        <div class="card-content">
+
+                            <div class="gambar">
+                                <img src="https://asset-a.grid.id/crop/0x0:0x0/700x465/photo/2022/07/23/ibu-hamil-dilarang-potong-rambut-20220723071033.jpg" alt="" />
+
+                            </div>
+                            <div class="details">
+                                <div class="plus-icons">
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+                                <div class="nama-produk">
+                                    <span class="nama">Potong Rambut</span>
+                                    <span class="nama">Rp. 25.000</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="swiper-slide card">
+                        <div class="card-content">
+
+                            <div class="gambar">
+                                <img src="https://images.solopos.com/2022/07/ilustrasi-mengecat-rambut.jpg?_gl=1*12dimvn*_ga*Njg5NzEzNTYyLjE2NzA1MDEwNTM.*_ga_N48JD3Q0D2*MTY3MDUwMTA1Mi4xLjEuMTY3MDUwMTA1Mi42MC4wLjA." alt="" />
+
+                            </div>
+                            <div class="details">
+                                <div class="plus-icons">
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+                                <div class="nama-produk">
+                                    <span class="nama">Semir Rambut</span>
+                                    <span class="nama">Rp. 60.000</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="swiper-slide card">
+                        <div class="card-content">
+
+                            <div class="gambar">
+                                <img src="https://statik.tempo.co/data/2016/03/23/id_492001/492001_620.jpg" alt="" />
+
+                            </div>
+                            <div class="details">
+                                <div class="plus-icons">
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+                                <div class="nama-produk">
+                                    <span class="nama">Creambath</span>
+                                    <span class="nama">Rp. 30.000</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div> <div class="swiper-slide card">
+                        <div class="card-content">
+
+                            <div class="gambar">
+                                <img src="https://tedas.id/wp-content/uploads/2021/06/Smoting-rambut-2.jpg.webp" alt="" />
+
+                            </div>
+                            <div class="details">
+                                <div class="plus-icons">
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+                                <div class="nama-produk">
+                                    <span class="nama">Smothing</span>
+                                    <span class="nama">Rp. 100.000</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+
         </div>
 
-    </div>
+    </section>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
-</section>
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-
-<!-- Initialize Swiper -->
-<script>
-    var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 4,
-        spaceBetween: 10,
-        slidesPerGroup: 4,
-        loop: true,
-        loopFillGroupWithBlank: true,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-    });
-</script>
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 4,
+            spaceBetween: 10,
+            slidesPerGroup: 4,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>

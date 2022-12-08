@@ -16,30 +16,30 @@
                 <nav>
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="IndexAdmin">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Info">Info & Contact</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="InfoAdmin">Info & Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Rambut">Rambut</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="RambutAdmin">Rambut</a>
                             <ul class="dropdown">
                                 <li><a href="#">Potong Rambut</a></li>
                                 <li><a href="#">Keramas</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Wajah">Wajah</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="WajahAdmin">Wajah</a>
                             <ul class="dropdown">
                                 <li><a href="#">masker</a></li>
                                 <li><a href="#">Facial Wash</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Pemesanan">Pemesanan</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Process">Pendataan</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="LoginAdmin">Login</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Logout</a>
                         </li>
                     </ul>
                 </nav>
@@ -54,22 +54,22 @@
 
 
 <section class="get-in-touch">
-    <h1 class="title">Pemesanan</h1>
-    <form class="contact-form row" form asp-controller="Home" asp-action="InsertUser">
+    <h1 class="title">Tambah Data</h1>
+    <form class="contact-form row" form asp-controller="Home" asp-action="Insertdata">
         <div class="form-field col-lg-6">
             <input class="input-text js-input" type="text" required asp-for="Id" id="Id">
             <label class="label" asp-for="Id">Id</label>
         </div>
         <div class="form-field col-lg-6 ">
             <input class="input-text js-input" type="text" required asp-for="Username" id="Username">
-            <label class="label" asp-for="Username">E-mail</label>
+            <label class="label" asp-for="Username">Nama</label>
         </div>
         <div class="form-field col-lg-6 ">
             <input class="input-text js-input" type="text" required asp-for="email" id="email">
             <label class="label" asp-for="email">E-mail</label>
         </div>
         <div class="form-field col-lg-6 ">
-            <input class="input-text js-input" type="text" requiredasp-for="nohp" id="no_hp">
+            <input class="input-text js-input" type="text" requiredasp-for="nohp" id="nohp">
             <label class="label" asp-for="nohp">No Hp</label>
         </div>
         <div class="form-field col-lg-12 ">

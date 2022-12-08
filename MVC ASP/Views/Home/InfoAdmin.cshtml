@@ -1,7 +1,6 @@
 ﻿@{
-    ViewData["Title"] = "Riwayat Data";
+    ViewData["Title"] = "Info & Contact";
 }
-
 
 <header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -52,42 +51,22 @@
     </nav>
 </header>
 
-<h1>@ViewData["Title"]</h1>
+<div class="kotak2">
 
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Nama</th>
-            <th scope="col">Jenis Perawatan</th>
-            <th scope="col">Tanggal Perawatan</th>
-            <th scope="col">no_hp</th>
-            <th scope="col">email</th>
-            <th scope="col">Edit</th>
-            <th scope="col">Hapus</th>
-        </tr>
-    </thead>
-    <tbody>
-        @{
-            var data = (List<UserModel>)ViewData["data"]!;
-            foreach (var user in data)
-            {
-                <tr>
-                    <th scope="row">@user.Id</th>
-                    <td>@user.Username</td>
-                    <td>@user.Jenis</td>
-                    <td>@user.Tanggal</td>
-                    <td>@user.nohp</td>
-                    <td>@user.email</td>
-                    <td>
-                        @Html.ActionLink("Ubah", "Edit", new { Id = @user.Id, Nama = @user.Username, Jenis_Perawatan = @user.Jenis, Tanggal_Perawatan = @user.Tanggal, no_hp = user.nohp, Email = @user.email}, new {@class = "btn btn-success"})
-                    </td>
-                    <td>
-                        @Html.ActionLink("Hapus", "DeleteUser", new { Id = @user.Id}, new {@class = "btn btn-danger", onclick ="return confirm('Apakah anda yakin ingin menghapus user ini?')" })
-                    </td>
-                </tr>
-            }
-        }
-    </tbody>
-</table>
-<button type="submit" class="btn btn-primary"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Insert"></a>Tambah Data</button>
+    <div class="BoxLogin2">
+
+        <div class="judul">
+            <h1>@ViewData["Title"]</h1>
+        </div>
+        <div class="Judul-PilihanLogin2">
+            <h3>
+                Hubungi Kami Melalui
+            </h3>
+        </div>
+        <div class="nomortelp">
+            <p class="nomor">WA: 08819891602</p>
+            <p class="nomor">Telp: 08812324449</p>
+        </div>
+
+    </div>
+</div>

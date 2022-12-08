@@ -1,11 +1,10 @@
 ﻿@{
-    ViewData["Title"] = "Pemesanan";
+    ViewData["Title"] = "Home Page";
 }
-
 <header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
         <div class="container-fluid">
-            <img src="https://i.pinimg.com/474x/b8/d1/45/b8d145ec1504ccfbeceff70bf5219c66.jpg" width="60px"  />
+            <img src="https://i.pinimg.com/474x/b8/d1/45/b8d145ec1504ccfbeceff70bf5219c66.jpg" width="60px" />
             <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Ananta Salon</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -26,6 +25,7 @@
                             <ul class="dropdown">
                                 <li><a href="#">Potong Rambut</a></li>
                                 <li><a href="#">Keramas</a></li>
+
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -33,6 +33,7 @@
                             <ul class="dropdown">
                                 <li><a href="#">masker</a></li>
                                 <li><a href="#">Facial Wash</a></li>
+
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -49,39 +50,37 @@
     </nav>
 </header>
 
+<div class="container">
+    <div class="Berita">
+        <div class="Text">
+            <h1><span class="text-otomatis"></span></h1>
+            <p>
+                Memiliki kulit wajah yang sehat, tentu menjadi idaman bagi semua orang.<br>
+                Sayangnya, ada banyak hal yang tanpa disadari justru bisa merusak kulit wajah,<br>
+                mulai dari faktor lingkungan hingga kebiasan buruk. Oleh karena itu,<br>
+                penting bagi Anda untuk selalu merawat kulit wajah secara rutin.
+            </p>
 
-@model MVC_ASP.Models.UserModel
+            <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+            <script>
+                var typed = new Typed(".text-otomatis", {
+                    strings: ["Pentingnya Perawatan Wajah"],
+                    typeSpeed: 100,
+                    backSpeed: 100,
+                    loop: true
+                })
+            </script>
+        </div>
+        <div class="Gambar_Berita">
+            <img src="https://akcdn.detik.net.id/community/media/visual/2021/02/13/rambut-indah-maudy-ayunda-jadi-bintang-iklan-shampoofoto-instagramcommaudyayunda.jpeg?w=620&q=90" width="500px" />
 
+        </div>
+    </div>
 
-<section class="get-in-touch">
-    <h1 class="title">Pemesanan</h1>
-    <form class="contact-form row" form asp-controller="Home" asp-action="Insertdata">
-        <div class="form-field col-lg-6">
-            <input class="input-text js-input" type="text" required asp-for="Id" id="Id">
-            <label class="label" asp-for="Id">Id</label>
-        </div>
-        <div class="form-field col-lg-6 ">
-            <input class="input-text js-input" type="text" required asp-for="Username" id="Username">
-            <label class="label" asp-for="Username">Nama</label>
-        </div>
-        <div class="form-field col-lg-6 ">
-            <input class="input-text js-input" type="text" required asp-for="email" id="email">
-            <label class="label" asp-for="email">E-mail</label>
-        </div>
-        <div class="form-field col-lg-6 ">
-            <input class="input-text js-input" type="text" required asp-for="nohp" id="nohp">
-            <label class="label" asp-for="nohp">No Hp</label>
-        </div>
-        <div class="form-field col-lg-12 ">
-            <input class="input-text js-input" type="text" required asp-for="Jenis" id="Jenis">
-            <label class="label" for="Jenis">Jenis Perawatan</label>
-        </div>
-        <div class="form-field col-lg-12 ">
-            <input class="input-text js-input" type="text" required asp-for="Tanggal" id="Tanggal">
-            <label class="label" for="Tanggal">Tanggal Perawatan</label>
-        </div>
-        <div class="form-field col-lg-12">
-            <input class="submit-btn" type="submit" value="Submit">
-        </div>
-    </form>
-</section>
+</div>
+
+<footer class="border-top footer text-muted">
+    <div class="footer">
+        &copy; 2022 - MVC_ASP - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+</footer>

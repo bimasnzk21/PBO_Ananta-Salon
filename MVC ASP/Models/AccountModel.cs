@@ -2,9 +2,19 @@
 
 namespace MVC_ASP.Models
 {
-    public class AccountModel
+    public class AdminModel
     {
-        public string? password { get; set; }
+        public string? useradm { get; set; }
+        public string? passadm { get; set; }
+
+    }
+
+    public class PelangganModel
+    {
+        public int? idpel { get; set; }
+        public string? userpel { get; set; }
+        public string? pswpel { get; set; }
+        public string? emailpel { get; set; }
 
     }
 }

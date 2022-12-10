@@ -8,8 +8,8 @@ namespace MVC_ASP.Models
         public string? Username { get; set; }
         public string? Jenis { get; set; }
         public string? Tanggal { get; set; }
-        public string? nohp { get; set; }
-        public string? email { get; set; }
+        public string? Nohp { get; set; }
+        public string? Email { get; set; }
 
     }
 }

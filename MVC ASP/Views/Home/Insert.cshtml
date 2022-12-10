@@ -55,7 +55,7 @@
 
 <section class="get-in-touch">
     <h1 class="title">Tambah Data</h1>
-    <form class="contact-form row" form asp-controller="Home" asp-action="Insertdata">
+    <form class="contact-form row" form asp-controller="Home" asp-action="InsertUser2">
         <div class="form-field col-lg-6">
             <input class="input-text js-input" type="text" required asp-for="Id" id="Id">
             <label class="label" asp-for="Id">Id</label>
@@ -65,12 +65,12 @@
             <label class="label" asp-for="Username">Nama</label>
         </div>
         <div class="form-field col-lg-6 ">
-            <input class="input-text js-input" type="text" required asp-for="email" id="email">
-            <label class="label" asp-for="email">E-mail</label>
+            <input class="input-text js-input" type="text" required asp-for="Email" id="Email">
+            <label class="label" asp-for="Email">E-mail</label>
         </div>
         <div class="form-field col-lg-6 ">
-            <input class="input-text js-input" type="text" requiredasp-for="nohp" id="nohp">
-            <label class="label" asp-for="nohp">No Hp</label>
+            <input class="input-text js-input" type="text" required asp-for="Nohp" id="Nohp">
+            <label class="label" asp-for="Nohp">No Hp</label>
         </div>
         <div class="form-field col-lg-12 ">
             <input class="input-text js-input" type="text" required asp-for="Jenis" id="Jenis">

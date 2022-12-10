@@ -77,10 +77,10 @@
                     <td>@user.Username</td>
                     <td>@user.Jenis</td>
                     <td>@user.Tanggal</td>
-                    <td>@user.nohp</td>
-                    <td>@user.email</td>
+                    <td>@user.Nohp</td>
+                    <td>@user.Email</td>
                     <td>
-                        @Html.ActionLink("Ubah", "Edit", new { Id = @user.Id, Nama = @user.Username, Jenis_Perawatan = @user.Jenis, Tanggal_Perawatan = @user.Tanggal, no_hp = user.nohp, Email = @user.email}, new {@class = "btn btn-success"})
+                        @Html.ActionLink("Ubah", "Edit", new { Id = @user.Id, Username = @user.Username, Jenis = @user.Jenis, Tanggal = @user.Tanggal, Nohp = user.Nohp, Email = @user.Email}, new {@class = "btn btn-success"})
                     </td>
                     <td>
                         @Html.ActionLink("Hapus", "DeleteUser", new { Id = @user.Id}, new {@class = "btn btn-danger", onclick ="return confirm('Apakah anda yakin ingin menghapus user ini?')" })

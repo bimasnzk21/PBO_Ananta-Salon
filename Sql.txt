@@ -1,0 +1,56 @@
+-- Table: pengguna.pemesanan
+
+-- DROP TABLE IF EXISTS pengguna.pemesanan;
+
+CREATE TABLE IF NOT EXISTS pengguna.pemesanan
+(
+    id_pemesanan integer NOT NULL DEFAULT nextval('pengguna.pemesanan_id_pemesanan_seq'::regclass),
+    nama_pelanggan character varying COLLATE pg_catalog."default" NOT NULL,
+    jenis_perawatan character varying COLLATE pg_catalog."default" NOT NULL,
+    tanggal_perawatan character varying COLLATE pg_catalog."default" NOT NULL,
+    no_hp character varying COLLATE pg_catalog."default" NOT NULL,
+    email character varying COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT pemesanan_pkey PRIMARY KEY (id_pemesanan)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS pengguna.pemesanan
+    OWNER to postgres;
+
+
+-- Table: pengguna.pelanggan
+
+-- DROP TABLE IF EXISTS pengguna.pelanggan;
+
+CREATE TABLE IF NOT EXISTS pengguna.pelanggan
+(
+    userpel character varying COLLATE pg_catalog."default" NOT NULL,
+    email character varying COLLATE pg_catalog."default" NOT NULL,
+    pswpel character varying COLLATE pg_catalog."default" NOT NULL,
+    id_pelanggan integer NOT NULL DEFAULT nextval('pengguna.pelanggan_id_pelanggan_seq'::regclass),
+    CONSTRAINT pelanggan_pkey PRIMARY KEY (userpel)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS pengguna.pelanggan
+    OWNER to postgres;
+
+
+-- Table: pengguna.admin
+
+-- DROP TABLE IF EXISTS pengguna.admin;
+
+CREATE TABLE IF NOT EXISTS pengguna.admin
+(
+    idadmin integer NOT NULL DEFAULT nextval('pengguna.admin_idadmin_seq'::regclass),
+    useradmin character varying COLLATE pg_catalog."default" NOT NULL,
+    passadmin character varying COLLATE pg_catalog."default",
+    CONSTRAINT admin_pkey PRIMARY KEY (useradmin)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS pengguna.admin
+    OWNER to postgres;

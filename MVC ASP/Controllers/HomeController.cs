@@ -34,7 +34,7 @@ namespace MVC_ASP.Controllers
             param = new NpgsqlParameter[] { };
 
             // Query Select
-            query = "SELECT * FROM pengguna.pemesanan";
+            query = "SELECT * FROM pengguna.datapemesanan";
             // Panggil DBConn untuk eksekusi Query
             helper.DBConn(ref ds, query, param);
 
@@ -53,8 +53,8 @@ namespace MVC_ASP.Controllers
                 user.Username = u.Field<string>(data.Columns[1]);
                 user.Jenis = u.Field<string>(data.Columns[2]);
                 user.Tanggal = u.Field<string>(data.Columns[3]);
-                user.nohp = u.Field<string>(data.Columns[4]);
-                user.email = u.Field<string>(data.Columns[5]);
+                user.Nohp = u.Field<string>(data.Columns[4]);
+                user.Email = u.Field<string>(data.Columns[5]);
                 // Menambahkan user ke users (List of User)
                 users.Add(user);
             }
@@ -284,7 +284,7 @@ namespace MVC_ASP.Controllers
             new NpgsqlParameter("@id_pemesanan", id)
         };
 
-            query = "SELECT * FROM pengguna.pemesanan WHERE id = @id_pemesanan;";
+            query = "SELECT * FROM pengguna.datapemesanan WHERE id = @id_pemesanan;";
             helper.DBConn(ref ds, query, param);
 
 
@@ -299,8 +299,8 @@ namespace MVC_ASP.Controllers
                 user.Username = u.Field<string>(data.Columns[1]);
                 user.Jenis = u.Field<string>(data.Columns[2]);
                 user.Tanggal = u.Field<string>(data.Columns[3]);
-                user.nohp = u.Field<string>(data.Columns[4]);
-                user.email = u.Field<string>(data.Columns[5]);
+                user.Nohp = u.Field<string>(data.Columns[4]);
+                user.Email = u.Field<string>(data.Columns[5]);
                 users.Add(user);
             }
 
@@ -326,7 +326,7 @@ namespace MVC_ASP.Controllers
             return RedirectToAction("IndexPel");
         }
 
-        public IActionResult Insertdata(UserModel user)
+        public IActionResult InsertUser(UserModel user)
         {
             ds = new DataSet();
             param = new NpgsqlParameter[] {
@@ -335,17 +335,36 @@ namespace MVC_ASP.Controllers
             new NpgsqlParameter("@nama_pelanggan", user.Username),
             new NpgsqlParameter("@jenis_perawatan", user.Jenis),
             new NpgsqlParameter("@tanggal_perawatan", user.Tanggal),
-            new NpgsqlParameter("@no_hp", user.nohp),
-            new NpgsqlParameter("@email", user.email),
+            new NpgsqlParameter("@no_hp", user.Nohp),
+            new NpgsqlParameter("@email", user.Email),
         };
 
-            query = "INSERT INTO pengguna.pemesanan VALUES (@id_pemesanan, @nama_pelanggan, @jenis_perawatan, @tanggal_perawatan, @no_hp, @email);";
+            query = "INSERT INTO pengguna.datapemesanan VALUES (@id_pemesanan, @nama_pelanggan, @jenis_perawatan, @tanggal_perawatan, @no_hp, @email);";
+            helper.DBConn(ref ds, query, param);
+
+            return RedirectToAction("IndexPel");
+        }
+
+        public IActionResult InsertUser2(UserModel user)
+        {
+            ds = new DataSet();
+            param = new NpgsqlParameter[] {
+            // Parameter untuk id dan username
+            new NpgsqlParameter("@id_pemesanan", user.Id),
+            new NpgsqlParameter("@nama_pelanggan", user.Username),
+            new NpgsqlParameter("@jenis_perawatan", user.Jenis),
+            new NpgsqlParameter("@tanggal_perawatan", user.Tanggal),
+            new NpgsqlParameter("@no_hp", user.Nohp),
+            new NpgsqlParameter("@email", user.Email),
+        };
+
+            query = "INSERT INTO pengguna.datapemesanan VALUES (@id_pemesanan, @nama_pelanggan, @jenis_perawatan, @tanggal_perawatan, @no_hp, @email);";
             helper.DBConn(ref ds, query, param);
 
             return RedirectToAction("Process");
         }
 
-        public IActionResult UpdateUser(UserModel user)
+        public IActionResult Updateuser(UserModel user)
         {
             ds = new DataSet();
             param = new NpgsqlParameter[] {
@@ -353,14 +372,14 @@ namespace MVC_ASP.Controllers
             new NpgsqlParameter("@nama_pelanggan", user.Username),
             new NpgsqlParameter("@jenis_perawatan", user.Jenis),
             new NpgsqlParameter("@tanggal_perawatan", user.Tanggal),
-            new NpgsqlParameter("@no_hp", user.nohp),
-            new NpgsqlParameter("@email", user.email),
+            new NpgsqlParameter("@no_hp", user.Nohp),
+            new NpgsqlParameter("@email", user.Email),
         };
 
-            query = "UPDATE pengguna.pemesanan SET nama_pelanggan = @nama_pelanggan, jenis_perawatan = @jenis_perawatan, tanggal_perawatan = @tanggal_perawatan, no_hp = @no_hp, email = @email WHERE id_pemesanan = @id_pemesanan;";
+            query = "UPDATE pengguna.datapemesanan SET nama_pelanggan = @nama_pelanggan, jenis_perawatan = @jenis_perawatan, tanggal_perawatan = @tanggal_perawatan, no_hp = @no_hp, email = @email WHERE id_pemesanan = @id_pemesanan;";
             helper.DBConn(ref ds, query, param);
 
-            return RedirectToAction("IndexAdmin");
+            return RedirectToAction("Process");
         }
 
         public IActionResult DeleteUser(UserModel user)
@@ -370,10 +389,10 @@ namespace MVC_ASP.Controllers
             new NpgsqlParameter("@id_pemesanan", user.Id)
         };
 
-            query = "DELETE FROM pengguna.pemesanan WHERE id_pemesanan = @id_pemesanan;";
+            query = "DELETE FROM pengguna.datapemesanan WHERE id_pemesanan = @id_pemesanan;";
             helper.DBConn(ref ds, query, param);
 
-            return RedirectToAction("IndexAdmin");
+            return RedirectToAction("Process");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

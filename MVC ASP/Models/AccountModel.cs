@@ -11,7 +11,6 @@ namespace MVC_ASP.Models
 
     public class PelangganModel
     {
-        public int? idpel { get; set; }
         public string? userpel { get; set; }
         public string? pswpel { get; set; }
         public string? emailpel { get; set; }

@@ -53,9 +53,8 @@
 <h1>@ViewData["Title"]</h1>
 
 @model MVC_ASP.Models.UserModel
-<form asp-controller="Home" asp-action="UpdateUser">
+<form asp-controller="Home" asp-action="Updateuser">
     <div class="form-group">
-        @*<label asp-for="Id">ID</label>*@
         <input asp-for="Id" type="text" class="form-control" id="Id" hidden>
         <label asp-for="Username">Nama Pelanggan</label>
         <input asp-for="Username" type="text" class="form-control" id="Username">
@@ -63,10 +62,10 @@
         <input asp-for="Jenis" type="text" class="form-control" id="Jenis">
         <label asp-for="Tanggal">Tanggal Perawatan</label>
         <input asp-for="Tanggal" type="text" class="form-control" id="Tanggal">
-        <label asp-for="nohp">No Hp</label>
-        <input asp-for="nohp" type="text" class="form-control" id="no_hp">
-        <label asp-for="email">Email</label>
-        <input asp-for="email" type="text" class="form-control" id="email">
+        <label asp-for="Nohp">No Hp</label>
+        <input asp-for="Nohp" type="text" class="form-control" id="Nohp">
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" type="text" class="form-control" id="Email">
     </div>
     <button type="submit" class="btn btn-primary">Update</button>
 </form>

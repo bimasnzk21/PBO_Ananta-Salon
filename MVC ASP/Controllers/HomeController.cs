@@ -368,14 +368,14 @@ namespace MVC_ASP.Controllers
         {
             ds = new DataSet();
             param = new NpgsqlParameter[] {
-            new NpgsqlParameter("@id_pemasanan", user.Id),
+            new NpgsqlParameter("@id_pemesanan", user.Id),
             new NpgsqlParameter("@nama_pelanggan", user.Username),
             new NpgsqlParameter("@jenis_perawatan", user.Jenis),
             new NpgsqlParameter("@tanggal_perawatan", user.Tanggal),
             new NpgsqlParameter("@no_hp", user.Nohp),
             new NpgsqlParameter("@email", user.Email),
         };
-
+            Console.WriteLine(user.Id);
             query = "UPDATE pengguna.datapemesanan SET nama_pelanggan = @nama_pelanggan, jenis_perawatan = @jenis_perawatan, tanggal_perawatan = @tanggal_perawatan, no_hp = @no_hp, email = @email WHERE id_pemesanan = @id_pemesanan;";
             helper.DBConn(ref ds, query, param);
 
@@ -426,6 +426,7 @@ namespace MVC_ASP.Controllers
                 // Mengisi ds dengan data yang didapatkan dari database
                 new NpgsqlDataAdapter(cmd).Fill(ds);
                 Console.WriteLine("Query berhasil dieksekusi");
+                Console.WriteLine(cmd.Parameters);
             }
             catch (NpgsqlException e)
             {
